@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "864914839461",
+    "project_id": "drinkdare-d3112",
+    "storage_bucket": "drinkdare-d3112.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:864914839461:android:76e8e80b5425c6b5497a4c",
+        "android_client_info": {
+          "package_name": "com.application.drinkdare"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyATP5kK0T0jn8p_7YcHrcOa_41COlbf1hA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
