@@ -10,7 +10,7 @@ import com.application.drinkdare.ui.screen.carta.CartaScreen
 sealed class Screen(val route: String) {
     object Carta : Screen("Carta")
 }
-
+//AA
 @Composable
 fun AppNavigation(navController: NavHostController) {
     NavHost(navController = navController, startDestination = Screen.Carta.route) {
