@@ -15,14 +15,17 @@ class CartaService (private val firestore: FirebaseFirestore){
             emptyList()
         }
     }
-        suspend fun addCarta(carta: Carta): Boolean{
-            return try {
-                cartaCollection.add(carta).await()
-                true
-            } catch (e: Exception){
-                false
-            }
+    suspend fun addCarta(carta: Carta): Boolean {
+        return try {
+            val documentRef = cartaCollection.add(carta).await()  // Agrega la carta
+            val cartaConId = carta.copy(id = documentRef.id) // Obtén el ID generado y actualiza el objeto carta
+            cartaCollection.document(documentRef.id).set(cartaConId).await() // Guarda el objeto con el ID correcto
+            true
+        } catch (e: Exception) {
+            false
         }
+    }
+
     suspend fun updateCarta(id: String, carta: Carta): Boolean{
         return try {
             cartaCollection.document(id).set(carta).await()
@@ -39,15 +42,5 @@ class CartaService (private val firestore: FirebaseFirestore){
             false
         }
     }
-    suspend fun addCartaWithIncrement(carta: Carta): Boolean{
-        return try {
-            val snapshot = cartaCollection.get().await()
-            val lastId = snapshot.documents.mapNotNull { it.id.toIntOrNull() }.maxOrNull() ?: 0
-            val newCarta = carta.copy(id = (lastId + 1))
-            cartaCollection.document(newCarta.id.toString()).set(newCarta).await()
-            true
-        } catch (e: Exception){
-            false
-        }
-    }
+
 }

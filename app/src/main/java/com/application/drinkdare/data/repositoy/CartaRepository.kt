@@ -14,9 +14,6 @@ class CartaRepository @Inject constructor(private val cartaService: CartaService
             return cartaService.getCartas()
         }
 
-        suspend fun getCartaById(id: Int): Carta? {
-            return cartaService.getCartas().find { it.id == id }
-        }
 
         suspend fun updateCarta(id: String, carta: Carta): Boolean {
             return cartaService.updateCarta(id, carta)
