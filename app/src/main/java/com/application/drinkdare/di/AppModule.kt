@@ -2,8 +2,6 @@ import com.application.drinkdare.data.remote.CartaService
 import com.application.drinkdare.data.repositoy.CartaRepository
 import com.application.drinkdare.domain.usecase.CartaUseCase
 import com.application.drinkdare.presentation.CartaViewModel
-import com.application.drinkdare.presentation.LoginViewModel
-import com.application.drinkdare.presentation.RegisterViewModel
 import com.google.firebase.firestore.FirebaseFirestore
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
@@ -23,10 +21,4 @@ val AppModule = module {
 
     // ViewModel
     viewModel { CartaViewModel(get()) }
-
-
-
-    viewModel { RegisterViewModel() }
-
-    viewModel { LoginViewModel() }
 }
